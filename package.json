@@ -7,6 +7,7 @@
     "start:dev": "tsx watch src/infra/main.ts",
     "test": "vitest run --dir src/domain/use-cases",
     "test:watch": "vitest",
+    "test:e2e": "vitest run --dir src/infra/http",
     "db:migrate": "npx prisma migrate dev",
     "db:deploy": "npx prisma migrate deploy"
   },
@@ -19,6 +20,7 @@
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "jsonwebtoken": "^9.0.2",
+    "supertest": "^7.0.0",
     "zod": "^3.23.3"
   },
   "devDependencies": {
@@ -28,6 +30,7 @@
     "@types/express": "^4.17.21",
     "@types/jsonwebtoken": "^9.0.6",
     "@types/node": "^20.12.7",
+    "@types/supertest": "^6.0.2",
     "eslint": "^8.57.0",
     "prisma": "^5.13.0",
     "tsx": "^4.7.2",
