@@ -6,7 +6,7 @@ export class Expense {
   amount: number
   date: Date
   customerId: string
-  createdAt: Date
+  createdAt?: Date
   updatedAt?: Date | null
 
   private constructor(props: Expense) {
@@ -19,14 +19,11 @@ export class Expense {
     this.updatedAt = props.updatedAt
   }
 
-  static create(
-    props: Omit<Expense, 'id' | 'createdAt'>,
-    id?: string,
-  ): Expense {
+  static create(props: Omit<Expense, 'id'>, id?: string): Expense {
     const expense = new Expense({
       ...props,
       id: id ?? randomUUID(),
-      createdAt: new Date(),
+      createdAt: props.createdAt ?? new Date(),
     })
 
     return expense
