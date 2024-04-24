@@ -1,6 +1,6 @@
 import { faker } from '@faker-js/faker'
 
-import { Expense } from '@/entities/expense'
+import { Expense } from '@/domain/entities/expense'
 
 export function makeExpense(override: Partial<Expense> = {}): Expense {
   return Expense.create(

@@ -1,6 +1,6 @@
-import { Customer } from '@/entities/customer'
-import { HashGenerator } from '@/cryptography/hash-generator'
-import { CustomersRepository } from '@/repositories/customers-repository'
+import { Customer } from '@/domain/entities/customer'
+import { HashGenerator } from '@/domain/cryptography/hash-generator'
+import { CustomersRepository } from '@/domain/repositories/customers-repository'
 
 import { CustomerAlreadyExistsError } from './errors/customer-already-exists-error'
 

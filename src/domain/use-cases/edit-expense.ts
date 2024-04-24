@@ -1,5 +1,5 @@
-import { Expense } from '@/entities/expense'
-import { ExpensesRepository } from '@/repositories/expenses-repository'
+import { Expense } from '@/domain/entities/expense'
+import { ExpensesRepository } from '@/domain/repositories/expenses-repository'
 
 import { ExpenseNotFoundError } from './errors/expense-not-found-error'
 

@@ -1,5 +1,5 @@
-import { Expense } from '@/entities/expense'
-import { PaginationParams } from './types/pagination-params'
+import { PaginationParams } from '@/core/types/pagination-params'
+import { Expense } from '@/domain/entities/expense'
 
 export interface ExpensesRepository {
   findManyByCustomerId(

@@ -4,8 +4,8 @@
   "description": "onDespezzas is an application that allows you to manage your expenses",
   "main": "main.js",
   "scripts": {
-    "start:dev": "tsx watch src/main.ts",
-    "test": "vitest run --dir src/use-cases",
+    "start:dev": "tsx watch src/infra/main.ts",
+    "test": "vitest run --dir src/domain/use-cases",
     "test:watch": "vitest"
   },
   "keywords": [],

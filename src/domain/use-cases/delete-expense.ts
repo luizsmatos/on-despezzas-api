@@ -1,24 +1,19 @@
-import { Expense } from '@/entities/expense'
-import { ExpensesRepository } from '@/repositories/expenses-repository'
+import { ExpensesRepository } from '@/domain/repositories/expenses-repository'
 
 import { ExpenseNotFoundError } from './errors/expense-not-found-error'
 
-interface GetExpenseUseCaseRequest {
+interface DeleteExpenseUseCaseRequest {
   customerId: string
   expenseId: string
 }
 
-interface GetExpenseUseCaseResponse {
-  expense: Expense
-}
-
-export class GetExpenseUseCase {
+export class DeleteExpenseUseCase {
   constructor(private readonly expensesRepository: ExpensesRepository) {}
 
   async execute({
     customerId,
     expenseId,
-  }: GetExpenseUseCaseRequest): Promise<GetExpenseUseCaseResponse> {
+  }: DeleteExpenseUseCaseRequest): Promise<void> {
     const expense = await this.expensesRepository.findByCustomerId(
       customerId,
       expenseId,
@@ -28,8 +23,6 @@ export class GetExpenseUseCase {
       throw new ExpenseNotFoundError()
     }
 
-    return {
-      expense,
-    }
+    await this.expensesRepository.delete(expense)
   }
 }

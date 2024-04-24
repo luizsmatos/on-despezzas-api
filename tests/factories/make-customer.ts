@@ -1,6 +1,6 @@
 import { faker } from '@faker-js/faker'
 
-import { Customer } from '@/entities/customer'
+import { Customer } from '@/domain/entities/customer'
 
 export function makeCustomer(override: Partial<Customer> = {}): Customer {
   return Customer.create(

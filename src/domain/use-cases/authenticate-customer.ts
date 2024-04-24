@@ -1,6 +1,6 @@
-import { Encryption } from '@/cryptography/encryption'
-import { HashComparer } from '@/cryptography/hash-comparer'
-import { CustomersRepository } from '@/repositories/customers-repository'
+import { Encryption } from '@/domain/cryptography/encryption'
+import { HashComparer } from '@/domain/cryptography/hash-comparer'
+import { CustomersRepository } from '@/domain/repositories/customers-repository'
 
 import { WrongCredentialsError } from './errors/wrong-credentials-error'
 

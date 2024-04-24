@@ -1,6 +1,6 @@
-import { Expense } from '@/entities/expense'
-import { ExpensesRepository } from '@/repositories/expenses-repository'
-import { PaginationParams } from '@/repositories/types/pagination-params'
+import { PaginationParams } from '@/core/types/pagination-params'
+import { Expense } from '@/domain/entities/expense'
+import { ExpensesRepository } from '@/domain/repositories/expenses-repository'
 
 export class InMemoryExpensesRepository implements ExpensesRepository {
   public items: Expense[] = []
