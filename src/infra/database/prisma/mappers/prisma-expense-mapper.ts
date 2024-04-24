@@ -1,4 +1,5 @@
 import { Expense as PrismaExpense, Prisma } from '@prisma/client'
+import { Decimal } from '@prisma/client/runtime/library'
 import { Expense } from '@/domain/entities/expense'
 
 export class PrismaExpenseMapper {
@@ -6,7 +7,7 @@ export class PrismaExpenseMapper {
     return {
       id: expense.id,
       description: expense.description,
-      amount: expense.amount,
+      amount: new Decimal(expense.amount).toNumber(),
       date: expense.date,
       customerId: expense.customerId,
       createdAt: expense.createdAt,
@@ -18,7 +19,7 @@ export class PrismaExpenseMapper {
     return Expense.create(
       {
         description: raw.description,
-        amount: raw.amount,
+        amount: new Decimal(raw.amount).toNumber(),
         date: raw.date,
         customerId: raw.customerId,
         createdAt: raw.createdAt,
