@@ -1,14 +1,15 @@
 import { Request, Response } from 'express'
-import { makeRegisterCustomerUseCase } from '@/domain/use-cases/factories/make-register-customer-usecase'
-import z from 'zod'
+import { z } from 'zod'
+
 import { CustomerAlreadyExistsError } from '@/domain/use-cases/errors/customer-already-exists-error'
+import { makeRegisterCustomerUseCase } from '@/domain/use-cases/factories/make-register-customer-usecase'
 
 export async function registerCustomerController(
   request: Request,
   response: Response,
 ): Promise<Response> {
   const registerBodySchema = z.object({
-    name: z.string(),
+    name: z.string().min(3),
     email: z.string().email(),
     password: z.string().min(6),
   })
