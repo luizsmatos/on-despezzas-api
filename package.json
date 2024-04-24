@@ -6,7 +6,9 @@
   "scripts": {
     "start:dev": "tsx watch src/infra/main.ts",
     "test": "vitest run --dir src/domain/use-cases",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "db:migrate": "npx prisma migrate dev",
+    "db:deploy": "npx prisma migrate deploy"
   },
   "keywords": [],
   "author": "",
