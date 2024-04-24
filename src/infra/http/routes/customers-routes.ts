@@ -3,9 +3,9 @@ import { Router } from 'express'
 import { authenticateCustomerController } from '../controllers/authenticate-customer-controller'
 import { registerCustomerController } from '../controllers/register-customer-controller'
 
-const customersRouter = Router()
+const customersRoutes = Router()
 
-customersRouter.post('/customers', registerCustomerController)
-customersRouter.post('/customers/login', authenticateCustomerController)
+customersRoutes.post('/customers', registerCustomerController)
+customersRoutes.post('/customers/login', authenticateCustomerController)
 
-export { customersRouter }
+export { customersRoutes }
