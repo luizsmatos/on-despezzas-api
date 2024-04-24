@@ -5,7 +5,7 @@ export class Customer {
   name: string
   email: string
   password: string
-  createdAt: Date
+  createdAt?: Date
   updatedAt?: Date | null
 
   private constructor(props: Customer) {
@@ -16,11 +16,11 @@ export class Customer {
     this.createdAt = props.createdAt
   }
 
-  static create(props: Omit<Customer, 'id' | 'createdAt'>, id?: string) {
+  static create(props: Omit<Customer, 'id'>, id?: string) {
     const customer = new Customer({
       ...props,
       id: id ?? randomUUID(),
-      createdAt: new Date(),
+      createdAt: props.createdAt ?? new Date(),
     })
 
     return customer
