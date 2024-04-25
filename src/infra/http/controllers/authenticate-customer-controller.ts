@@ -24,7 +24,7 @@ export async function authenticateCustomerController(
 
     const { accessToken } = result
 
-    return response.status(200).send({ accessToken })
+    return response.status(200).json({ accessToken })
   } catch (err) {
     if (err instanceof WrongCredentialsError) {
       return response.status(400).json({ message: err.message })
