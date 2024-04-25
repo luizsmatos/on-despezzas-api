@@ -14,7 +14,7 @@ export class PrismaExpensesRepository implements ExpensesRepository {
       where: {
         customerId,
       },
-      skip: page * 20,
+      skip: (page - 1) * 20,
       take: 20,
       orderBy: {
         date: 'desc',
