@@ -22,6 +22,7 @@ export async function createExpenseController(
   const createExpenseUseCase = makeCreateExpenseUseCase()
   const result = await createExpenseUseCase.execute({
     customerId: request.customer.id,
+    email: request.customer.email,
     description,
     amount,
     date,
