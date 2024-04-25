@@ -1,0 +1,67 @@
+@baseURL = http://localhost:3333
+@token = {{authenticateCustomer.response.body.accessToken}}
+@expenseId = {{createExpense.response.body.expense.id}}
+
+###
+
+# @name registerCustomer
+POST {{baseURL}}/customers
+Content-Type: application/json
+
+{
+  "name": "Luiz Matos",
+  "email": "luizsmatos@on-despezzas.com",
+  "password": "123456"
+}
+
+###
+# @name authenticateCustomer
+POST {{baseURL}}/customers/login
+Content-Type: application/json
+
+{
+  "email": "luizsmatos@on-despezzas.com",
+  "password": "123456"
+}
+
+###
+# @name createExpense
+POST {{baseURL}}/expenses
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "description": "Almoço",
+  "amount": 20.00,
+  "date": "2024/01/01"
+}
+
+###
+# @name listExpenses
+GET {{baseURL}}/expenses?page=1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+###
+# @name getExpense
+GET {{baseURL}}/expenses/{{expenseId}}
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+###
+# @name editExpense
+PUT {{baseURL}}/expenses/{{expenseId}}
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "description": "Jantar",
+  "amount": 30.00,
+  "date": "2024/01/01"
+}
+
+###
+# @name deleteExpense
+DELETE {{baseURL}}/expenses/{{expenseId}}
+Authorization: Bearer {{token}}
+Content-Type: application/json
