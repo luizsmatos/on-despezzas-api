@@ -6,7 +6,7 @@ O onDespezzas é uma aplicação desenvolvida para facilitar o gerenciamento de 
 
 Antes de iniciar, certifique-se de ter instalado em seu sistema:
 
-- Node.js v20 ou superior
+- [Node.js v20 ou superior](https://nodejs.org/en/download)
 
 ## Configuração do Ambiente
 
