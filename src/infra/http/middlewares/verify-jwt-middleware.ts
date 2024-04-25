@@ -24,7 +24,7 @@ export async function verifyJwtMiddleware(
     const customer = await customersRepository.findById(decoded.sub)
 
     if (!customer) {
-      return response.status(401).json({ message: 'Customer not found' })
+      return response.status(404).json({ message: 'Customer not found' })
     }
 
     request.customer = customer
