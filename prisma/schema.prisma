@@ -31,5 +31,6 @@ model Expense {
 
   customer Customer @relation(fields: [customerId], references: [id])
 
+  @@index([id, customerId])
   @@map("expenses")
 }
