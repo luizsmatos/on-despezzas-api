@@ -28,7 +28,7 @@ export class PrismaExpensesRepository implements ExpensesRepository {
     customerId: string,
     expenseId: string,
   ): Promise<Expense | null> {
-    const expense = await prisma.expense.findFirst({
+    const expense = await prisma.expense.findUnique({
       where: {
         id: expenseId,
         customerId,
