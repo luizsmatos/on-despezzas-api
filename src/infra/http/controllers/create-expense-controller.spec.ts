@@ -31,4 +31,18 @@ describe('Create Expense Controller (e2e)', () => {
     expect(response.statusCode).toEqual(401)
     expect(response.body).toEqual({ message: 'Unauthorized' })
   })
+
+  it('should return 401 if token is invalid', async () => {
+    const response = await request(app)
+      .post('/expenses')
+      .set('Authorization', `Bearer invalid-token`)
+      .send({
+        description: 'Almoço',
+        amount: 20.0,
+        date: '2024/01/01',
+      })
+
+    expect(response.statusCode).toEqual(401)
+    expect(response.body).toEqual({ message: 'Unauthorized' })
+  })
 })
