@@ -29,5 +29,5 @@ export async function createExpenseController(
 
   const { expense } = result
 
-  return response.status(201).send({ expense })
+  return response.status(201).json({ expense })
 }
