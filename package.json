@@ -4,6 +4,12 @@
   "description": "onDespezzas is an application that allows you to manage your expenses",
   "main": "main.js",
   "scripts": {
+    "clean": "rimraf dist",
+    "prebuild": "npm run clean",
+    "build": "tsup src --clean --out-dir dist",
+    "postbuild": "rimraf -g dist/**/*.spec.js",
+    "prestart": "npm run db:deploy",
+    "start": "node --watch dist/infra/main.js",
     "start:dev": "tsx watch src/infra/main.ts",
     "test": "vitest run --dir src/domain/use-cases",
     "test:watch": "vitest",
@@ -27,6 +33,7 @@
     "jsonwebtoken": "^9.0.2",
     "nodemailer": "^6.9.13",
     "npm-run-all": "^4.1.5",
+    "rimraf": "^5.0.5",
     "supertest": "^7.0.0",
     "swagger-ui-express": "^5.0.0",
     "zod": "^3.23.3"
